@@ -131,5 +131,30 @@ public class TestConvert {
 	}
 
 
+    @Test
+    public void test_num2text_treize() {
+        Assert.assertEquals("treize",Convert.num2text("13"));
+    }
 
+    @Test
+    public void test_num2text_quatorze() {
+        Assert.assertEquals("quatorze",Convert.num2text("14"));
+    }
+
+    @Test
+    public void test_num2text_quinze() {
+        Assert.assertEquals("quinze",Convert.num2text("15"));
+    }
+
+    @Test
+    public void test_num2text_seize() {
+        Assert.assertEquals("seize",Convert.num2text("16"));
+    }
+    
+
+    @Test
+    public void test_num2text_dixsept() {
+        Assert.assertEquals("dix-sept",Convert.num2text("17"));
+    }
+    
 }

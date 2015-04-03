@@ -1,6 +1,8 @@
 package iut.tdd;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import sun.applet.Main;
 
 public class Convert {
 
@@ -56,22 +58,43 @@ public class Convert {
         map.put("40", QUARANTE);
         map.put("50", CINQUANTE);
         map.put("60", SOIXANTE);
+        if (nbChiffre(input) == -1) {
+            return map.get(input);
+        }
         if (nbChiffre(input) == 0) {
             return map.get(input);
-        } else if( nbChiffre(input) != 0){
-            //
+        } else if( nbChiffre(input) == 1){
+            String resultat ="" ;
+            resultat = map.get(input.charAt(0)+"0");
+            resultat = resultat+"-" + map.get(""+input.charAt(1));
+            return resultat;
         }
         return map.get(input);
     }
 
 
 public static int nbChiffre(String input) {
+        ArrayList<String> exception = new ArrayList<>();
+        for(int i = 10; i <=16 ;i++){
+            exception.add(i+"");
+        }
+        for (int i = 20; i <= 100 ; i=i+10){
+            exception.add(i+"");
+        }
+       
+        if(exception.contains(input))
+            return -1;
         if(input.length() == 1)
             return 0;
-        return input.charAt(0);
+        else
+            return 1;
     }  
 
     public static String text2num(String input) {
         return null;
+    }
+    public static void main(String[] args){
+        //System.out.println(num2text("23"));
+        nbChiffre("12");
     }
 }
