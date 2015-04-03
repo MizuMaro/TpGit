@@ -56,14 +56,20 @@ public class Convert {
         map.put("40", QUARANTE);
         map.put("50", CINQUANTE);
         map.put("60", SOIXANTE);
-
+        if (nbChiffre(input) == 0) {
+            return map.get(input);
+        } else if( nbChiffre(input) != 0){
+            //
+        }
         return map.get(input);
     }
 
-    public int nbChiffre(String input) {
-        return input.length();
 
-    }
+public static int nbChiffre(String input) {
+        if(input.length() == 1)
+            return 0;
+        return input.charAt(0);
+    }  
 
     public static String text2num(String input) {
         return null;

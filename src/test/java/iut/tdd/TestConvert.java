@@ -14,7 +14,7 @@ public class TestConvert {
 
     @Test
     public void test_num2text_un() {
-        Assert.assertEquals("un","1");
+        Assert.assertEquals("un",Convert.num2text("1"));
     }
 
     @Test
