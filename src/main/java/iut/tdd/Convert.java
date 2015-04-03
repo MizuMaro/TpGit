@@ -59,44 +59,50 @@ public class Convert {
         map.put("50", CINQUANTE);
         map.put("60", SOIXANTE);
         map.put("70", SOIXANTE);
-        map.put("80", QUATRE+"-"+VINGT+"s");
-        map.put("90", QUATRE+"-"+VINGT+"s");
+        map.put("80", QUATRE + "-" + VINGT);
+        map.put("90", QUATRE + "-" + VINGT);
 
         if (nbChiffre(input) == -1) {
             return map.get(input);
         }
         if (nbChiffre(input) == 0) {
             return map.get(input);
-        } else if( nbChiffre(input) == 1){
-            String resultat ="" ;
-            resultat = map.get(input.charAt(0)+"0");
-            if(input.charAt(1) == '1')
-            resultat = resultat+" et " + map.get(""+input.charAt(1));
-            else 
-            resultat = resultat+"-" + map.get(""+input.charAt(1));
+        } else if (nbChiffre(input) == 1) {
+            String resultat = "";
+            resultat = map.get(input.charAt(0) + "0");
+            if (input.charAt(1) == '0' && input.charAt(0) == '7' ||input.charAt(1) == '0'&& input.charAt(0) == '9')
+                resultat += "s";
+            else  if (input.charAt(1) == '1') {
+                resultat = resultat + " et " + map.get("" + input.charAt(1));
+            } else if (input.charAt(0) == '7' || input.charAt(0) == '9') {
+                resultat = resultat + "-" + map.get("1" + input.charAt(1));
+            } else {
+                resultat = resultat + "-" + map.get("" + input.charAt(1));
+            }
             return resultat;
         }
         return map.get(input);
     }
 
+    public static int nbChiffre(String input) {
 
-public static int nbChiffre(String input) {
-        
         ArrayList<String> exception = new ArrayList<>();
-        for(int i = 10; i <=16 ;i++){
-            exception.add(i+"");
+        for (int i = 10; i <= 16; i++) {
+            exception.add(i + "");
         }
-        for (int i = 20; i <= 100 ; i=i+10){
-            exception.add(i+"");
+        for (int i = 20; i <= 100; i = i + 10) {
+            exception.add(i + "");
         }
-       
-        if(exception.contains(input))
+
+        if (exception.contains(input)) {
             return -1;
-        if(input.length() == 1)
+        }
+        if (input.length() == 1) {
             return 0;
-        else
+        } else {
             return 1;
-    }  
+        }
+    }
 
     public static String text2num(String input) {
         return null;

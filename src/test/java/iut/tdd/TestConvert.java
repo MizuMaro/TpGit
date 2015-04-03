@@ -186,5 +186,13 @@ public class TestConvert {
     public void test_num2text_quarantedeux() {
         Assert.assertEquals("quarante-deux",Convert.num2text("42"));
     }
+    @Test
+    public void test_num2text_quatrevingts2() {
+        Assert.assertEquals("quatre-vingt-deux",Convert.num2text("82"));
+    }
+    @Test
+    public void test_num2text_92(){
+        Assert.assertEquals("quatre-vingt-douze",Convert.num2text("92"));
+    }
     
 }
