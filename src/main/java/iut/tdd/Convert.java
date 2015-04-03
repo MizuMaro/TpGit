@@ -58,6 +58,10 @@ public class Convert {
         map.put("40", QUARANTE);
         map.put("50", CINQUANTE);
         map.put("60", SOIXANTE);
+        map.put("70", SOIXANTE);
+        map.put("80", QUATRE+"-"+VINGT+"s");
+        map.put("90", QUATRE+"-"+VINGT+"s");
+
         if (nbChiffre(input) == -1) {
             return map.get(input);
         }
@@ -66,6 +70,9 @@ public class Convert {
         } else if( nbChiffre(input) == 1){
             String resultat ="" ;
             resultat = map.get(input.charAt(0)+"0");
+            if(input.charAt(1) == '1')
+            resultat = resultat+" et " + map.get(""+input.charAt(1));
+            else 
             resultat = resultat+"-" + map.get(""+input.charAt(1));
             return resultat;
         }
@@ -74,6 +81,7 @@ public class Convert {
 
 
 public static int nbChiffre(String input) {
+        
         ArrayList<String> exception = new ArrayList<>();
         for(int i = 10; i <=16 ;i++){
             exception.add(i+"");
@@ -92,9 +100,5 @@ public static int nbChiffre(String input) {
 
     public static String text2num(String input) {
         return null;
-    }
-    public static void main(String[] args){
-        //System.out.println(num2text("23"));
-        nbChiffre("12");
     }
 }
